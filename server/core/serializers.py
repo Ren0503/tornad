@@ -7,7 +7,7 @@ from users.serializers import UserProfileSerializer, UserSerializer
 
 class WriteSerializer(serializers.ModelSerializer):
     user = serializers.SerializerMethodField(read_only=True)
-    original_mumble = serializers.SerializerMethodField(read_only=True)
+    original_write = serializers.SerializerMethodField(read_only=True)
     up_voters = serializers.SerializerMethodField(read_only=True)
     down_voters = serializers.SerializerMethodField(read_only=True)
 

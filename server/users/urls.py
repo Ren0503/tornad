@@ -24,5 +24,5 @@ urlpatterns = [
     path('delete-profile/', views.delete_user, name="delete-user"),
     path('profile_update/delete/', views.ProfilePictureDelete, name="profile_delete_photo"), 
     path('<str:username>/', views.user, name="user"),
-    path('<str:username>/writes/', views.user_writes, name="user-mumbles"),
+    path('<str:username>/writes/', views.user_writes, name="user-writes"),
 ]

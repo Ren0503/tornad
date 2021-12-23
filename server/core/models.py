@@ -11,7 +11,7 @@ class Write(models.Model):
         "self", on_delete=models.CASCADE, null=True, blank=True)
     # For re-write (Share) functionality
     rewrite = models.ForeignKey(
-        "self", on_delete=models.CASCADE, related_name='remumbles', null=True, blank=True)
+        "self", on_delete=models.CASCADE, related_name='rewrites', null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     # content is allowed to be plan for rewrites
     content = RichTextField(null=True, blank=True)
@@ -21,7 +21,7 @@ class Write(models.Model):
     share_count = models.IntegerField(blank=True, null=True, default=0)
     created = models.DateTimeField(auto_now_add=True)
     votes = models.ManyToManyField(
-        User, related_name='mumble_user', blank=True, through='MumbleVote')
+        User, related_name='write_user', blank=True, through='Vote')
     id = models.UUIDField(default=uuid.uuid4,  unique=True,
                           primary_key=True, editable=False)
 
@@ -63,4 +63,4 @@ class Vote(models.Model):
                           primary_key=True, editable=False)
 
     def __str__(self):
-        return str(self.user) + ' ' + str(self.value) + '"' + str(self.mumble) + '"'
+        return str(self.user) + ' ' + str(self.value) + '"' + str(self.write) + '"'

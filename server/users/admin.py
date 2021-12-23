@@ -6,9 +6,9 @@ from .models import UserProfile
 
 
 class AdminUserProfile(admin.ModelAdmin):
-    list_display = ('username', 'get_utc', 'email_verified')
+    list_display = ('username', 'get_utc')
     search_fields = ('user',)
-    list_filter = ('user', 'email_verified',)
+    list_filter = ('user',)
     empty_value_display = '-empty field-'
 
     def get_utc(self, obj):
